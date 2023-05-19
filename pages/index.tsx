@@ -6,9 +6,9 @@ import {
   GetStaticPropsContext,
   PreviewData,
 } from "next";
-import { HomepageApiCalls } from "@api/apiCalls/homepageApiCalls";
 import HomeModule from "@modules/home";
 import { ParsedUrlQuery } from "querystring";
+import { HomepageApiCalls } from "@apiFiles/apiCalls/homepageApiCalls";
 
 export interface IHomePage {
   bannerData: any;

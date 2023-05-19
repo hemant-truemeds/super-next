@@ -64,11 +64,11 @@
       "@i18n": [
         "./i18n"
       ],
-      "@api/*": [
-        "src/api/*"
+      "@apiFiles/*": [
+        "src/apiFiles/*"
       ],
-      "@api": [
-        "src/api"
+      "@apiFiles": [
+        "src/apiFiles"
       ],
       "@test/*": [
         "test/*"

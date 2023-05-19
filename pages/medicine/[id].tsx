@@ -1,5 +1,5 @@
 import React from "react";
-import { getProductPage } from "@api/apiCalls/productpageApiCalls";
+import { getProductPage } from "@apiFiles/apiCalls/productpageApiCalls";
 import {
   GetServerSideProps,
   GetServerSidePropsContext,

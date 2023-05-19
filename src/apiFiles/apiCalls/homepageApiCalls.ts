@@ -1,5 +1,8 @@
-import { HOME_APIS, HOME_STATIC_PAYLOAD } from "@api/apiConstants/homepageApi";
-import { axiosBase, axiosWp } from "@api/axiosClient";
+import {
+  HOME_APIS,
+  HOME_STATIC_PAYLOAD,
+} from "@apiFiles/apiConstants/homepageApi";
+import { axiosBase, axiosWp } from "@apiFiles/axiosClient";
 // import { bannerData } from "@constants/jsonData/bannerData";
 // import { elastic_search } from "@constants/jsonData/elastic_search";
 // import { getDeliveryCharges } from "@constants/jsonData/getDeliveryCharges";

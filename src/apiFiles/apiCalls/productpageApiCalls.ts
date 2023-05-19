@@ -1,8 +1,8 @@
 import {
   PRODUCT_APIS,
   PRODUCT_STATIC_PAYLOAD,
-} from "@api/apiConstants/productpageApi";
-import { Base_URLS, axiosBase } from "@api/axiosClient";
+} from "@apiFiles/apiConstants/productpageApi";
+import { Base_URLS, axiosBase } from "@apiFiles/axiosClient";
 
 const getProductPage = async (id: string) => {
   try {

@@ -1,0 +1,18 @@
+.swiperModalWrapper {
+  min-height: 15.625rem;
+  @media screen and (max-width: 768px) {
+    height: 16.125rem;
+  }
+  // .unsetImage {
+  //   width: 100%;
+  //   & > div {
+  //     position: unset !important;
+  //   }
+  //   .customImage {
+  //     object-fit: contain;
+  //     width: 100% !important;
+  //     position: relative !important;
+  //     height: unset !important;
+  //   }
+  // }
+}

@@ -18,42 +18,52 @@ const createSitemapXml = (filePath: string) => {
       }, acc);
     }, {})
   );
+  return arrObj
+    .map(({ product_url_suffix }: any) => {
+      return `
+        <url>
+            <loc>${`${EXTERNAL_DATA_URL}/${product_url_suffix
+              ?.trim()
+              ?.replace(/\s/g, "-")}`}</loc>
+        </url>
+  `;
+    })
+    .join("");
+  // const createMultipleSitemap = () => {
+  //   const listOfArrays = divideArray(arrObj);
 
-  const createMultipleSitemap = () => {
-    const listOfArrays = divideArray(arrObj);
+  //   for (let index in listOfArrays) {
+  //     // creating final sitemap file content
+  //     const finalSitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  //           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  //           <!--We manually set the two URLs we know already-->
+  //           ${listOfArrays[index]
+  //             .map(({ product_url_suffix }: any) => {
+  //               return `
+  //                 <url>
+  //                     <loc>${`${EXTERNAL_DATA_URL}/${product_url_suffix
+  //                       ?.trim()
+  //                       ?.replace(/\s/g, "-")}`}</loc>
+  //                 </url>
+  //           `;
+  //             })
+  //             .join("")}
+  //         </urlset>
+  //       `;
 
-    for (let index in listOfArrays) {
-      // creating final sitemap file content
-      const finalSitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <!--We manually set the two URLs we know already-->
-            ${listOfArrays[index]
-              .map(({ product_url_suffix }: any) => {
-                return `
-                  <url>
-                      <loc>${`${EXTERNAL_DATA_URL}/${product_url_suffix
-                        ?.trim()
-                        ?.replace(/\s/g, "-")}`}</loc>
-                  </url>
-            `;
-              })
-              .join("")}
-          </urlset>
-        `;
+  //     // create sitemap.xml file (optional in nextjs)
+  //     // fs.appendFile(
+  //     //   `src/sitemapTemp/sitemap${index}.xml`,
+  //     //   finalSitemapContent,
+  //     //   (err) => {
+  //     //     if (err) console.log(err);
+  //     //     console.log("file created!");
+  //     //   }
+  //     // );
+  //   }
+  // };
 
-      // create sitemap.xml file (optional in nextjs)
-      fs.appendFile(
-        `src/sitemapTemp/sitemap${index}.xml`,
-        finalSitemapContent,
-        (err) => {
-          if (err) console.log(err);
-          console.log("file created!");
-        }
-      );
-    }
-  };
-
-  createMultipleSitemap();
+  // createMultipleSitemap();
   // return finalSitemapContent;
 };
 

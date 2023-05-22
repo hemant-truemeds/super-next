@@ -89,8 +89,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.json"
-  ],
+    "**/*.json",
+    "next-sitemap.config.js"  ],
   "exclude": [
     "node_modules",
     "test/*",

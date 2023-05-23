@@ -47,7 +47,7 @@ const createSitemapXml = (filePath: string) => {
         finalSitemapContent,
         (err) => {
           if (err) console.log(err);
-          console.log("file created!");
+          // console.log("file created!");
         }
       );
     }

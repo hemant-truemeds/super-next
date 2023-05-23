@@ -4,10 +4,10 @@ const divideArray = (bulkArray: any[]) => {
   let startIndex = 0;
 
   while (startIndex < length) {
-    const endIndex = Math.min(startIndex + 10000, length);
+    const endIndex = Math.min(startIndex + 7000, length);
     const group = bulkArray.slice(startIndex, endIndex);
     result.push(group);
-    startIndex += 10000;
+    startIndex += 7000;
   }
 
   return result;

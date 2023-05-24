@@ -11,6 +11,17 @@ const getCsvFile = async () => {
     const downloadFile = async (url = " ") => {
       // const dirName = "src/sitemapTemp";
       const dirName = "public";
+
+      fs.readdir(dirName, (err: any, files: any) => {
+        if (err) console.log("file read error!");
+        files.forEach((fileName: any) => {
+          if (fileName.includes(".xml") || fileName.includes(".csv")) {
+            // console.log(fileName);
+            var filePath = `${dirName}/${fileName}`;
+            fs.unlinkSync(filePath);
+          }
+        });
+      });
       // if (fs.existsSync(dirName)) {
       //   fs.rmdirSync(dirName, { recursive: true });
       //   fs.mkdirSync(dirName, { recursive: true });

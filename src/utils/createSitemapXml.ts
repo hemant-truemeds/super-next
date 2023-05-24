@@ -1,10 +1,10 @@
 let csvToJson = require("convert-csv-to-json");
 import fs from "fs";
-import { divideArray } from "./divide1000Array";
+import { divideArray } from "./divideSitemapArray";
 
 const createSitemapXml = (filePath: string) => {
   const EXTERNAL_DATA_URL = "https://www.truemeds.in";
-
+  let pathOfXmlFiles = "public";
   // convert csv to json
   const jsonFromCsv = csvToJson.getJsonFromCsv(filePath);
   // convert json to iterable array of object
@@ -43,7 +43,7 @@ const createSitemapXml = (filePath: string) => {
 
       // create sitemap.xml file (optional in nextjs)
       fs.appendFile(
-        `src/sitemapTemp/sitemap${index}.xml`,
+        `${pathOfXmlFiles}/sitemap${index}.xml`,
         finalSitemapContent,
         (err) => {
           if (err) console.log(err);
@@ -55,6 +55,7 @@ const createSitemapXml = (filePath: string) => {
 
   createMultipleSitemap();
   // return finalSitemapContent;
+  return pathOfXmlFiles;
 };
 
 export { createSitemapXml };

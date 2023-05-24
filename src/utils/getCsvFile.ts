@@ -9,13 +9,14 @@ const getCsvFile = async () => {
     const fileUrl = await axios.get(GET_CSV_LINK_URL);
 
     const downloadFile = async (url = " ") => {
-      const dirName = "src/sitemapTemp";
-      if (fs.existsSync(dirName)) {
-        fs.rmdirSync(dirName, { recursive: true });
-        fs.mkdirSync(dirName, { recursive: true });
-      } else {
-        fs.mkdirSync(dirName, { recursive: true });
-      }
+      // const dirName = "src/sitemapTemp";
+      const dirName = "public";
+      // if (fs.existsSync(dirName)) {
+      //   fs.rmdirSync(dirName, { recursive: true });
+      //   fs.mkdirSync(dirName, { recursive: true });
+      // } else {
+      //   fs.mkdirSync(dirName, { recursive: true });
+      // }
       const filename = url.split("/")[url.split("/").length - 1];
       const customPathToSaveFile = `${dirName}/${filename}`;
       const checkIfDownloaded = () =>

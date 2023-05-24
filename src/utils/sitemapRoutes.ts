@@ -1,5 +1,5 @@
 const fs = require("fs");
-const testFolder = "src/sitemapTemp";
+const testFolder = "public";
 
 const handleSitemapMedicine = async () => {
   const fileListArray: string[] = [];

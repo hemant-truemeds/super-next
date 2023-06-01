@@ -4,9 +4,11 @@ import axios from "axios";
 // First, create the thunk
 export const fetchUserById = createAsyncThunk(
   "users/fetchByIdStatus",
-  async () => {
+  async (_, thunkApi) => {
+    // thunkApi.rejectWithValue
     const myPromise = new Promise((res, rej) => {
-      setTimeout(() => res("timeout complete"), 3000);
+      // setTimeout(() => res("timeout complete"), 2000);
+      rej("this rejected");
     });
     // const response = await axios.get("https://api.publicapis.org/entries");
     const response = await myPromise;
@@ -31,14 +33,21 @@ const usersSlice = createSlice({
   reducers: {
     // standard reducer logic, with auto-generated action types per reducer
   },
-  extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(fetchUserById.fulfilled, (state, action) => {
-      // Add user to the state array
+  extraReducers: {
+    [`${fetchUserById.fulfilled}`]: (state: UsersState, action: any) => {
+      //     // Add user to the state array
       state.entities.push(action.type as never);
       state.entities.push(action.payload as never);
-    });
+    },
   },
+  // extraReducers: (builder) => {
+  //   // Add reducers for additional action types here, and handle loading state as needed
+  //   builder.addCase(fetchUserById.fulfilled, (state, action) => {
+  //     // Add user to the state array
+  //     state.entities.push(action.type as never);
+  //     state.entities.push(action.payload as never);
+  //   });
+  // },
 });
 export const {} = usersSlice.actions;
 
